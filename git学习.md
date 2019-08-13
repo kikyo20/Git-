@@ -73,6 +73,7 @@ git checkout dev
 3. 撤销已提交到版本库了的修改（但是还没推到远程库），直接回退版本`git reset --hard commit_id`
 ##### 二、合并分支/解决冲突
 `git merge <name>`合并分支到当前分支，如果有冲突，在当前分支解决后提交
+例如：在`master`合并`dev`有冲突，解决冲突后在`master`提交,切换到`dev`,在`dev`合并`master`,`master`和`dev`就是相同的内容了
 ##### 三、新增临时bug分支
 场景：`dev`分支开发到一半时需要紧急处理一个bug，先`git stash`把`dev`的内容“储藏起来”(1.否则得先把`dev`的内容提交才能切换分支2.新建的文件不能被储藏，先`add`)，然后切换到`master`新建`issue-101`分支,处理完`issue-101`的bug后切回`dev`,`git stash pop`恢复内容继续完成开发任务
 ##### 四、删除未合并的分支
