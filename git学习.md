@@ -59,6 +59,9 @@ git checkout dev
 `git push origin <name>`推送到远程库
 `git push --set-upstream origin <name>`将本地分支关联到远程分支
 
+`git checkout -b <name> <name>`拉取远程分支到本地
+例如：`git checkout -b dev origin/dev`从远程库拉取dev分支
+
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
@@ -81,3 +84,6 @@ git checkout dev
 ##### 五、新增本地分支并推送到远程库
 1. 新增分支`dev`;
 2. 推送：`git push --set-upstream origin dev`
+
+##### 六、从远程库拉取分支
+默认情况下，从远程库克隆的仓库，只有`master`分支，其它分支需要另外拉取，例例如：`git checkout -b dev origin/dev`
