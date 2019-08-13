@@ -31,6 +31,10 @@
 `git clone <origin>`从远程库克隆
 
 `git check -b dev`创建`dev`分支并切换到`dev`
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 相当于：
 ```
 git branch dev
@@ -41,11 +45,24 @@ git checkout dev
 `git branch <name>`创建分支
 `git checkout <name>`切换分支
 `git branch -d <name>`删除分支
+`git branch -D <name>`强行删除分支
 
 `git merge <name>`合并指定分支到当前分支（以`fast forward`模式合并，默认）
 `git merge --no-ff -m <message> <name>`（以普通模式合并）
 
 `git log --graph` 查看分支合并图
+
+`git stash`暂时储藏工作现场
+`git stash pop`恢复工作现场且删除stash内容
+`git stash apply`恢复工作现场但不删除stash内容
+`git stash drop`删除stash内容
+
+`git remote`查看远程库信息
+`git remote -v`查看远程库详细信息
+
+`git push origin <name>`推送到远程库
+`git push --set-upstream origin <name>`将本地分支关联到远程分支
+
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
@@ -56,8 +73,14 @@ git checkout dev
 ### 三、常用操作
 ##### 一、如果要撤销修改
 1. 撤销工作区修改，用`git checkout -- <file>`
-2. 撤销已添加到暂存区的修改，用`git rest HEAD <file>`
+2. 撤销已添加到暂存区的修改，用`git resest HEAD <file>`
 3. 撤销已提交到版本库了的修改（但是还没推到远程库），直接回退版本`git reset --hard commit_id`
 ##### 二、合并分支/解决冲突
-
-##### 三、解决临时bug
+`git merge <name>`合并分支到当前分支，如果有冲突，在当前分支解决后提交
+##### 三、新增临时bug分支
+场景：`dev`分支开发到一半时需要紧急处理一个bug，先`git stash`把`dev`的内容“储藏起来”(1.否则得先把`dev`的内容提交才能切换分支2.新建的文件不能被储藏，先`add`)，然后切换到`master`新建`issue-101`分支,处理完`issue-101`的bug后切回`dev`,`git stash pop`恢复内容继续完成开发任务
+##### 四、删除未合并的分支
+场景：新增了一个新功能分支但还没有合并，然后这个新功能不需要了这个分支得去掉，如果直接用`git branch -d`删除会提示`error: The branch 'feature-vulcan' is not fully merged.If you are sure you want to delete it, run 'git branch -D feature-vulcan'.`,这时得用`git branch -D <name>`才能删除成功
+##### 五、新增本地分支并推送到远程库
+1. 新增分支`dev`;
+2. 推送：`git push --set-upstream origin dev`
