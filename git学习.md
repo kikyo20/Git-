@@ -30,13 +30,20 @@
 
 `git check -b dev`创建`dev`分支并切换到`dev`
 相当于：
+
 ```
+
 git branch dev
 git checkout dev
+
 ```
 
 `git branch` 查看所有分支
-`git branch <分支名>`创建分支
+`git branch <name>`创建分支
+`git checkout <name>`切换分支
+`git branch -d <name>`删除分支
+
+`git merge <name>`合并指定分支到当前分支
 
 
 ### 二、基础知识
