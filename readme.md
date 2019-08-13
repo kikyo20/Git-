@@ -62,12 +62,15 @@ git checkout dev
 `git checkout -b <name> <name>`拉取远程分支到本地
 例如：`git checkout -b dev origin/dev`从远程库拉取dev分支
 
+`git pull`抓取远程库的最新提交
+
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
 2. 多个分支时`HEAD`指向当前分支
 3. `git add`是添加文件到暂存区，`git commit`是把暂存区内容提交到当前分支
 4.合并分支时以普通模式合并能看出来曾经做过合并，用`fast forward`模式不行
+5.如果另一个人在远程库提交了新内容，这时会`push`失败，需要先`git pull`再`push`，否则提交不上去
 
 ### 三、常用操作
 ##### 一、如果要撤销修改
