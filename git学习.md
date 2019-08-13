@@ -54,6 +54,9 @@ git checkout dev
 `git remote`查看远程库信息
 `git remote -v`查看远程库详细信息
 
+`git push origin <name>`推送到远程库
+`git push --set-upstream origin <name>`将本地分支关联到远程分支
+
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
@@ -71,10 +74,6 @@ git checkout dev
 场景：`dev`分支开发到一半时需要紧急处理一个bug，先`git stash`把`dev`的内容“储藏起来”(1.否则得先把`dev`的内容提交才能切换分支2.新建的文件不能被储藏，先`add`)，然后切换到`master`新建`issue-101`分支,处理完`issue-101`的bug后切回`dev`,`git stash pop`恢复内容继续完成开发任务
 ##### 四、删除未合并的分支
 场景：新增了一个新功能分支但还没有合并，然后这个新功能不需要了这个分支得去掉，如果直接用`git branch -d`删除会提示`error: The branch 'feature-vulcan' is not fully merged.If you are sure you want to delete it, run 'git branch -D feature-vulcan'.`,这时得用`git branch -D <name>`才能删除成功
-
-
-
-
-______________________________
-newfile.md
-
+##### 五、新增本地分支并推送到远程库
+1. 新增分支`dev`;
+2. 推送：`git push --set-upstream origin dev`
