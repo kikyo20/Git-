@@ -20,12 +20,44 @@
 例如：`git reset HEAD readme.md`
 
 `git rm <file>`删除版本库中的文件
+
+`git remote add origin <origin>`关联一个远程库（先有本地库后有无程库时如何关联远程库）
+例如：`git remote add origin git@github.com:kikyo20/Git-.git`
+
+`git push -u origin master`第一次推送master分支的所有内容
+
+`git clone <origin>`从远程库克隆
+
+`git check -b dev`创建`dev`分支并切换到`dev`
+相当于：
+```
+git branch dev
+git checkout dev
+```
+
+`git branch` 查看所有分支
+`git branch <分支名>`创建分支
+
+
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
-2. `git add`是添加文件到暂存区，`git commit`是把暂存区内容提交到当前分支
+2. 多个分支时`HEAD`指向当前分支
+3. `git add`是添加文件到暂存区，`git commit`是把暂存区内容提交到当前分支
 
 ### 三、基本操作
-如果要撤销修改
+一、如果要撤销修改
 1. 撤销工作区修改，用`git checkout -- <file>`
 2. 撤销已添加到暂存区的修改，用`git rest HEAD <file>`
 3. 撤销已提交到版本库了的修改（但是还没推到远程库），直接回退版本`git reset --hard commit_id`
+二、合并分支
+三、解决冲突
+
+
+
+
+
+
+
+______________________________
+Creating a new branch is quick.
+
