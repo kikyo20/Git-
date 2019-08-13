@@ -45,6 +45,7 @@ git checkout dev
 
 `git merge <name>`合并指定分支到当前分支
 
+`git log --graph` 查看分支合并图
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
@@ -52,7 +53,7 @@ git checkout dev
 3. `git add`是添加文件到暂存区，`git commit`是把暂存区内容提交到当前分支
 
 ### 三、基本操作
-一、如果要撤销修改
+##### 一、如果要撤销修改
 1. 撤销工作区修改，用`git checkout -- <file>`
 2. 撤销已添加到暂存区的修改，用`git rest HEAD <file>`
 3. 撤销已提交到版本库了的修改（但是还没推到远程库），直接回退版本`git reset --hard commit_id`
@@ -66,5 +67,5 @@ git checkout dev
 
 
 ______________________________
-Creating a new branch is quick & simple.
+add merge
 
