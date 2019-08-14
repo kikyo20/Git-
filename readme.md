@@ -63,14 +63,25 @@ git checkout dev
 例如：`git checkout -b dev origin/dev`从远程库拉取dev分支
 
 `git pull`抓取远程库的最新提交
+`git rebase`把本地未push的分叉提交历史整理成直线
+
+`git tag <tagname>`创建一个新标签(默认为最新的commit)
+`git tag <tagname> <commit id>`给指定的commit打标签
+`git tag -a <tagname> -m <message>`指定标签信息
+`git show <tagname>`查看标签说明文字
+`git tag`查看所有标签
+`git tag -d <tagname>`删除标签
+`git push origin <tagname>`推送标签到远程
+`git push origin --tags`一次性推送所有标签到远程
+`git push origin :refs/tags/<tagname>`从远程删除标签
 
 
 ### 二、基础知识
 1. 当前版本是`HEAD`,上一个版本是`HEAD^`，上上一个版本是`HEAD^^`,上100个版本是`HEAD~100`
 2. 多个分支时`HEAD`指向当前分支
 3. `git add`是添加文件到暂存区，`git commit`是把暂存区内容提交到当前分支
-4.合并分支时以普通模式合并能看出来曾经做过合并，用`fast forward`模式不行
-5.如果另一个人在远程库提交了新内容，这时会`push`失败，需要先`git pull`再`push`，否则提交不上去
+4. 合并分支时以普通模式合并能看出来曾经做过合并，用`fast forward`模式不行
+5. 如果另一个人在远程库提交了新内容，这时会`push`失败，需要先`git pull`再`push`，否则提交不上去
 
 ### 三、常用操作
 ##### 一、如果要撤销修改
@@ -90,3 +101,5 @@ git checkout dev
 
 ##### 六、从远程库拉取分支
 默认情况下，从远程库克隆的仓库，只有`master`分支，其它分支需要另外拉取，例例如：`git checkout -b dev origin/dev`
+
+##### 七、操作标签（tags）
