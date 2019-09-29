@@ -30,7 +30,7 @@
 
 `git clone <origin>`从远程库克隆
 
-`git check -b dev`创建`dev`分支并切换到`dev`
+`git checkout -b dev`创建`dev`分支并切换到`dev`
 相当于：
 ```
 git branch dev
